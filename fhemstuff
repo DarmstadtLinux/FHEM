@@ -1,0 +1,11 @@
+// this is a code snipped for people who want to export data out of fhem, this perl skript ist excecuted in a "at" periodicly after 5 seconds
+// so it writes my sensor data to a linux text file... if you understand it you will have a lot of fun
+
++*00:00:05 {"Periodischer test"}{print("hallo welt aus fhem");;
+system("echo halloausfhem");;
+my $rueckgabe  = ReadingsVal("WMBUS_SON_23275669_22_8","1_value","2");;
+print("\nInhalt = ",$rueckgabe);;
+print("\n");
+system("cd /; cd home/pi/Desktop;echo \"Following comes right out of FHEM !! :\">>T1.txt");;
+system("cd /; cd home/pi/Desktop;echo $rueckgabe>>T1.txt");;
+}
